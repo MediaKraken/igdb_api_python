@@ -1,7 +1,9 @@
 # IGDB PYTHON WRAPPER
 
-import requests
 import json
+
+import requests
+
 
 class igdb:
     __api_key = ""
@@ -21,7 +23,7 @@ class igdb:
                 default += str(self.__args[parameter])
         return default
 
-    def getRequest(self,url):
+    def getRequest(self, url):
         headers = {
             'user-key': self.__api_key,
             'Accept': 'application/json'
@@ -56,121 +58,99 @@ class igdb:
         # Build URL
         url = endpoint + "/" + str(search) + str(ids)
         url += "&" if search != "" else "?"
-        url += "fields=" + str(fields) + str(filters) + str(order) + str(limit) + str(offset) + str(expand)+ str(scroll)
-        print(url)
+        url += "fields=" + str(fields) + str(filters) + str(order) + str(limit) + str(offset) \
+               + str(expand) + str(scroll)
         r = self.getRequest(url)
         return r
 
     # Get next scroll page
-    def scroll(self,response):
-        r = self.getRequest(response.headers['x-next-page'])
-        return r
+    def scroll(self, response):
+        return self.getRequest(response.headers['x-next-page'])
+
     # GAMES
     def games(self, args=""):
-        r = self.call_api("games", args)
-        return r
+        return self.call_api("games", args)
 
     # PULSE
     def pulses(self, args=""):
-        r = self.call_api("pulses", args)
-        return r
+        return self.call_api("pulses", args)
 
     # CHARACTERS
     def characters(self, args=""):
-        r = self.call_api("characters", args=args)
-        return r
+        return self.call_api("characters", args=args)
 
     # COLLECTIONS
     def collections(self, args=""):
-        r = self.call_api("collections", args=args)
-        return r
+        return self.call_api("collections", args=args)
 
     # COMPANIES
     def companies(self, args=""):
-        r = self.call_api("companies", args=args)
-        return r
+        return self.call_api("companies", args=args)
 
     # FRANCHISES
     def franchises(self, args=""):
-        r = self.call_api("franchises", args=args)
-        return r
+        return self.call_api("franchises", args=args)
 
     # FEEDS
     def feeds(self, args=""):
-        r = self.call_api("feeds", args=args)
-        return r
+        return self.call_api("feeds", args=args)
 
     # PAGES
     def pages(self, args=""):
-        r = self.call_api("pages", args=args)
-        return r
+        return self.call_api("pages", args=args)
 
     # GAME_ENGINES
     def game_engines(self, args=""):
-        r = self.call_api("game_engines", args=args)
-        return r
+        return self.call_api("game_engines", args=args)
 
     # GAME_MODES
     def game_modes(self, args=""):
-        r = self.call_api("game_modes", args=args)
-        return r
+        return self.call_api("game_modes", args=args)
 
     # GENRES
     def genres(self, args=""):
-        r = self.call_api("genres", args=args)
-        return r
+        return self.call_api("genres", args=args)
 
     # KEYWORDS
     def keywords(self, args=""):
-        r = self.call_api("keywords", args=args)
-        return r
+        return self.call_api("keywords", args=args)
 
     # PEOPLE
     def people(self, args=""):
-        r = self.call_api("people", args=args)
-        return r
+        return self.call_api("people", args=args)
 
     # PLATFORMS
     def platforms(self, args=""):
-        r = self.call_api("platforms", args=args)
-        return r
+        return self.call_api("platforms", args=args)
 
     # PLAYER_PERSPECTIVES
     def player_perspectives(self, args=""):
-        r = self.call_api("player_perspectives", args=args)
-        return r
+        return self.call_api("player_perspectives", args=args)
 
     # RELEASE_DATES
     def release_dates(self, args=""):
-        r = self.call_api("release_dates", args=args)
-        return r
+        return self.call_api("release_dates", args=args)
 
     # PULSE GROUPS
     def pulse_groups(self, args=""):
-        r = self.call_api("pulse_groups", args=args)
-        return r
+        return self.call_api("pulse_groups", args=args)
 
     # PULSE SOURCES
     def pulse_sources(self, args=""):
-        r = self.call_api("pulse_sources", args=args)
-        return r
+        return self.call_api("pulse_sources", args=args)
 
     # THEMES
     def themes(self, args=""):
-        r = self.call_api("themes", args=args)
-        return r
+        return self.call_api("themes", args=args)
 
     # REVIEWS
     def reviews(self, args=""):
-        r = self.call_api("reviews", args=args)
-        return r
+        return self.call_api("reviews", args=args)
 
     # TITLES
     def titles(self, args=""):
-        r = self.call_api("titles", args=args)
-        return r
+        return self.call_api("titles", args=args)
 
     # TITLES
     def credits(self, args=""):
-        r = self.call_api("credits", args=args)
-        return r
+        return self.call_api("credits", args=args)
